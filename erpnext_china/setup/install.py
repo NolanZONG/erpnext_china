@@ -9,7 +9,7 @@ uom_list = [
     '批',
     '次',
     '件',
-	'张',
+    '张',
     '套',
     '卷',
     '片',
@@ -84,12 +84,12 @@ def set_china_default():
         frappe.log_error("erpnext_china set_china_default failed")
 
 def set_global_defaults():
-        frappe.db.set_single_value('Global Defaults',
-            {
-				'disable_rounded_total':1,
-				'disable_in_words':1
-            }
-        )
+    frappe.db.set_single_value('Global Defaults',
+        {
+            'disable_rounded_total': 1,
+            'disable_in_words': 1
+        }
+    )
 
 def set_system_settings():
     system_settings = frappe.get_doc('System Settings')
@@ -110,16 +110,16 @@ def change_field_property():
     try:
         file_path = os.path.join(os.path.dirname(__file__), 'field_property.csv')
         with open(file_path, 'r', encoding='utf-8') as in_file:
-                data = list(csv.reader(in_file))
+            data = list(csv.reader(in_file))
         for (doctype, field_name, prop, value) in data:
-                frappe.get_doc({
-                        'doctype': 'Property Setter',
-                        'doctype_or_field': 'DocField',
-                        'doc_type': doctype,
-                        'field_name': field_name,
-                        'property': prop,
-                        'value': value
-                }).insert(ignore_permissions=1, ignore_if_duplicate=1)
+            frappe.get_doc({
+                'doctype': 'Property Setter',
+                'doctype_or_field': 'DocField',
+                'doc_type': doctype,
+                'field_name': field_name,
+                'property': prop,
+                'value': value
+            }).insert(ignore_permissions=1, ignore_if_duplicate=1)
     except Exception as _:
         frappe.log_error("erpnext_china change_field_property failed")
 
@@ -149,4 +149,4 @@ def set_v16_icon():
                 "cn-account-reporting"
             )
     except Exception as e:
-		frappe.log_error(f"erpnext_china set_v16_icon failed: {str(e)}")
+        frappe.log_error(f"erpnext_china set_v16_icon failed: {str(e)}")
