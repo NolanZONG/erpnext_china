@@ -139,7 +139,7 @@ def set_v16_icon():
                 },
             )
         else:
-			frappe.log_error("erpnext_china set_v16_icon failed: 'Desktop Icon' table does not exist.")
+            frappe.log_error("erpnext_china set_v16_icon failed: 'Desktop Icon' table does not exist.")
 
         # 2. 更新 Workflow Sidebar：中国财务报表
         workflow_sidebar_name = "中国财务报表"
@@ -151,6 +151,6 @@ def set_v16_icon():
                 "cn-account-reporting"
             )
         else:
-			frappe.log_error("erpnext_china set_v16_icon failed: 'Workspace Sidebar' table does not exist.")
+            frappe.log_error("erpnext_china set_v16_icon failed: 'Workspace Sidebar' table does not exist.")
     except Exception as e:
         frappe.log_error(f"erpnext_china set_v16_icon failed: {str(e)}")
